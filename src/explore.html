@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mary Blankemeier: Explore in 3D</title>
+<meta name="description" content="Mary Blankemeier: runner, painter, founder of Run Your City, Stanford GSB '27.">
+<meta name="theme-color" content="#f8f3ec"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://mary-blankemeier.vercel.app/explore">
+<meta property="og:title" content="Mary Blankemeier"><meta property="og:description" content="Getting more people to the starting line, in sport, in health care, and in AI.">
+<meta property="og:image" content="https://mary-blankemeier.vercel.app/img/portrait.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Give+You+Glory&display=swap">
+<link rel="stylesheet" href="explore.css?v=20261015hidden"><script src="view-flow.js" defer></script></head><body>
+<a class="skip-link" href="/">Read the notebook</a>
+<canvas id="scene" role="img" aria-label="A running track with children circling Run Your City, a striped coffee cart, a painting gallery, an occupied podcast patio, a clickable stereo picnic spot, a live Palo Alto clock, cones and a Gatorade station beside the children’s loop, a study nook and a low track sandpit that opens the AI sandbox notes, a reading bench with labeled résumé books, open bleachers with twelve fans including a family of six. Fans hold popcorn, drinks and a pennant. There are six numbered places to explore. The same sections are available in the notebook."></canvas>
+<div class="scene-wash" aria-hidden="true"></div>
+<header class="site-header">
+<a class="brand" href="/">Mary Blankemeier</a>
+<div class="view-switch" role="group" aria-label="Choose website view"><a href="/" id="text-view">Text</a><a href="/explore" aria-current="page">3D</a></div>
+<nav class="nav" aria-label="Explore a section">
+<a href="#right-now" data-go="right-now"><span class="nav-number" aria-hidden="true">1</span><span>Right now</span></a>
+<a href="#run-your-city" data-go="run-your-city"><span class="nav-number" aria-hidden="true">2</span><span>Run Your City</span></a>
+<a href="#podcast" data-go="podcast"><span class="nav-number" aria-hidden="true">3</span><span>Out of Our Depth</span></a>
+<a href="#paintings" data-go="paintings"><span class="nav-number" aria-hidden="true">4</span><span>Paints by Blanks</span></a>
+<a href="#resume" data-go="resume"><span class="nav-number" aria-hidden="true">5</span><span>Résumé</span></a>
+<a href="#say-hi" data-go="say-hi"><span class="nav-number" aria-hidden="true">6</span><span>Say hi</span></a>
+</nav></header>
+<div id="markers" class="markers" aria-label="Places on the track"></div>
+<p id="clock-description" class="sr-only"></p>
+<div class="scene-controls"><button id="stereo-button" class="discovery-control" aria-label="Play stereo music" aria-pressed="false"><span class="music-label">Play music</span></button><button id="sandbox-button" class="discovery-control" aria-label="Open the AI sandbox">Open AI sandbox</button><button class="motion" id="motion" aria-pressed="false">Pause motion</button>
+<div class="time-switch" role="group" aria-label="Time of day"><button data-time="auto" id="lighting-auto" aria-pressed="true" title="Follow daylight in Palo Alto">Auto</button><button data-time="0" aria-pressed="false">Day</button><button data-time="1" aria-pressed="false">Dusk</button><button data-time="2" aria-pressed="false">Night</button></div></div>
+<p class="hint"><span class="desktop-hint">Choose a number to explore.</span><span class="mobile-hint">Swipe to look around, tap a number</span></p>
+<aside id="card" class="card" aria-label="Selected section" aria-hidden="true" inert><button id="cardx" class="card-close" aria-label="Close section">×</button><div id="cardin"></div><div class="card-footer"><a id="notebook-link" href="/">Read in the notebook ↗</a><button id="back">Back to the track</button></div></aside>
+<div class="load" id="load"><div><p class="hand">Opening the track…</p><p id="load-message">The notebook is always here, too.</p><a href="/">Read the notebook ↗</a></div></div>
+<noscript><div class="no-script">This view uses JavaScript. <a href="/">Read the notebook ↗</a></div></noscript>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="explore.js?v=20261015hidden"></script></body></html>

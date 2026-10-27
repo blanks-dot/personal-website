@@ -1,0 +1,233 @@
+/* Marked Up: tokens, compiled from the design system. */
+:root {
+  --paper: #f8f3ec;
+  --paper-dot: #e9dfd2;
+  --print: #ffffff;
+  --rule: #e3d6c6;
+  --tape: #efe6cf;
+  --ink: #34251c;
+  --ink-muted: #7a6151;
+  --caramel: #7e5436;
+  --pen: #2440b8;
+  --pen-tint: #dce2f7;
+  --highlighter: #e3f232;
+  --highlighter-faint: #f1f7bf;
+  --focus: var(--pen);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 88px;
+  --measure: 608px;
+  --page: 992px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-pill: 999px;
+  --radius-none: 0;
+  --shadow-print: 0 1px 2px rgba(46,38,34,0.14), 0 12px 28px rgba(46,38,34,0.14);
+  --shadow-none: none;
+  --stroke-pen: 1.7px;
+  --stroke-pen-thick: 2px;
+  --stroke-highlighter: 0.62em;
+  --stroke-band: 18px;
+  --stroke-link: 1.5px;
+  --tilt-note: -2deg;
+  --tilt-hello: -4deg;
+  --tilt-signature: -5deg;
+  --tilt-print: 1.5deg;
+  --font-sans: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-hand: "Give You Glory", "Bradley Hand", "Segoe Print", cursive;
+  color-scheme: light;
+}
+.name { font-family: var(--font-sans); font-size: 76px; line-height: 1.02; font-weight: 600; letter-spacing: -0.025em; }
+.heading { font-family: var(--font-sans); font-size: 30px; line-height: 1.2; font-weight: 600; letter-spacing: -0.015em; }
+.lede { font-family: var(--font-sans); font-size: 23px; line-height: 1.5; font-weight: 400; }
+.body { font-family: var(--font-sans); font-size: 17px; line-height: 1.65; font-weight: 400; }
+.body-small { font-family: var(--font-sans); font-size: 15.5px; line-height: 1.6; font-weight: 400; }
+.strong { font-family: var(--font-sans); font-size: 17px; line-height: 1.65; font-weight: 600; }
+.label { font-family: var(--font-sans); font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0.08em; }
+.caption { font-family: var(--font-sans); font-size: 11px; line-height: 1.2; font-weight: 500; letter-spacing: 0.08em; }
+.button { font-family: var(--font-sans); font-size: 14px; line-height: 1; font-weight: 500; }
+.hand-hello { font-family: var(--font-hand); font-size: 40px; line-height: 1; font-weight: 400; }
+.hand-signature { font-family: var(--font-hand); font-size: 38px; line-height: 1.1; font-weight: 400; }
+.hand-kicker { font-family: var(--font-hand); font-size: 23px; line-height: 1; font-weight: 400; }
+.hand-note { font-family: var(--font-hand); font-size: 21px; line-height: 1.4; font-weight: 400; }
+.hand-small { font-family: var(--font-hand); font-size: 18px; line-height: 1.2; font-weight: 400; }
+
+/* Marked Up: the shared stylesheet. Colours, sizes and radii come from the tokens above; this part only arranges them. */
+
+.mu { box-sizing: border-box; background-color: var(--paper); background-image: radial-gradient(var(--paper-dot) 1px, transparent 1.3px); background-size: var(--space-5) var(--space-5); color: var(--ink); font-family: var(--font-sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+.mu *, .mu *::before, .mu *::after { box-sizing: border-box; }
+.mu h1, .mu h2, .mu h3, .mu p, .mu ul, .mu ol, .mu figure { margin: 0; }
+.mu p, .mu li { text-wrap: pretty; }
+.mu ul, .mu ol { padding: 0; list-style: none; }
+.mu a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--pen); text-decoration-thickness: var(--stroke-link); text-underline-offset: 4px; }
+.mu a:hover { color: var(--caramel); }
+.mu a:focus-visible, .mu button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: var(--radius-sm); }
+.mu .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* page frame */
+.mu .page { max-width: var(--page); margin-inline: auto; padding-inline: clamp(18px, 5vw, 44px); padding-block: var(--space-8) var(--space-7); display: flex; flex-direction: column; gap: var(--space-9); }
+.mu .col { max-width: var(--measure); display: flex; flex-direction: column; gap: var(--space-5); }
+.mu .spot { position: relative; }
+
+/* handwriting */
+.mu .hw { font-family: var(--font-hand); color: var(--pen); font-size: 21px; line-height: 1.4; -webkit-text-stroke: 0.35px var(--pen); filter: url(#mu-ink); }
+.mu .hw .w { display: inline-block; white-space: nowrap; }
+.mu .hw .c { display: inline-block; transform: translateY(var(--y, 0)) rotate(var(--r, 0deg)) scale(var(--s, 1)); margin-right: var(--k, 0); }
+.mu .hello { font-size: 40px; line-height: 1; transform: rotate(var(--tilt-hello)); transform-origin: left bottom; display: inline-block; margin-bottom: var(--space-2); }
+.mu .sig { font-size: 38px; line-height: 1.1; transform: rotate(var(--tilt-signature)); transform-origin: left center; display: inline-block; margin-top: var(--space-3); }
+.mu .kicker { font-size: 23px; line-height: 1.15; transform: translateY(-0.18em) rotate(var(--tilt-note)); transform-origin: left bottom; display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--space-2); max-width: 100%; }
+.mu .hw.small { font-size: 18px; line-height: 1.2; }
+.mu .note { display: block; margin: var(--space-3) 0 0 var(--space-5); padding: 0; transform: rotate(var(--tilt, var(--tilt-note))); transform-origin: left center; font-size: 21px; line-height: 1.3; }
+.mu .note .arrow { display: none; }
+.mu .arrow, .mu .doodle, .mu .tick { fill: none; stroke: var(--pen); stroke-width: var(--stroke-pen); stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.mu .fix { font-size: 20px; line-height: 1; margin: 0 var(--space-2) 0 var(--space-3); display: inline-block; transform: rotate(var(--tilt-hello)) translateY(-3px); }
+
+/* pen marks */
+.mu [data-mark] { position: relative; display: inline-block; white-space: nowrap; }
+.mu .mark { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; fill: none; stroke: var(--pen); stroke-width: var(--stroke-pen); stroke-linecap: round; stroke-linejoin: round; }
+.mu .mark path { stroke-dasharray: var(--len); stroke-dashoffset: 0; }
+.mu [data-mark="hl"] { isolation: isolate; }
+.mu .mark.hl { z-index: -1; stroke: var(--highlighter); stroke-linecap: butt; mix-blend-mode: multiply; opacity: 0.95; }
+@media (prefers-reduced-motion: no-preference) {
+  .mu .mark.fresh path { animation: mu-draw 0.55s ease-out both; animation-delay: var(--d, 0s); }
+  @keyframes mu-draw { from { stroke-dashoffset: var(--len); } to { stroke-dashoffset: 0; } }
+}
+
+/* selection: a run of text someone just dragged over on a phone */
+.mu .sel { position: relative; background: var(--pen-tint); padding: 0.1em 0.3em; margin: 0 -0.3em; box-decoration-break: clone; -webkit-box-decoration-break: clone; color: var(--ink); }
+.mu .hdl { position: relative; display: inline-block; width: 0; height: 1em; vertical-align: -0.12em; }
+.mu .hdl::before { content: ""; position: absolute; left: -1px; top: -0.24em; bottom: -0.2em; width: 2px; background: var(--pen); border-radius: 1px; }
+.mu .hdl::after { content: ""; position: absolute; left: 50%; width: 0.62em; height: 0.62em; border-radius: 50%; background: var(--pen); transform: translateX(-50%); }
+.mu .hdl.s { margin: 0 0.3em 0 -0.3em; } .mu .hdl.s::after { top: -0.62em; }
+.mu .hdl.e { margin: 0 -0.3em 0 0.3em; } .mu .hdl.e::after { bottom: -0.62em; }
+
+/* typed scale */
+.mu h1, .mu .name { font-weight: 600; font-size: clamp(44px, 9.5vw, 76px); line-height: 1.02; letter-spacing: -0.025em; }
+.mu h2, .mu .heading { font-weight: 600; font-size: 30px; line-height: 1.2; letter-spacing: -0.015em; }
+.mu .lede { font-size: clamp(19px, 3.6vw, 23px); line-height: 1.5; }
+.mu .creds, .mu .small-type { font-size: 15.5px; color: var(--ink-muted); }
+.mu .creds .sel { color: var(--ink); }
+.mu .label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--caramel); font-variant-numeric: tabular-nums; }
+.mu .caption { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); }
+.mu .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3) var(--space-5); }
+.mu .nums b { font-weight: 600; }
+
+/* hero */
+.mu .hero { display: grid; gap: var(--space-6) var(--space-7); align-items: start; }
+.mu .versions { display: flex; flex-direction: column; }
+.mu .versions .note.li { margin: var(--space-3) 0 0 var(--space-5); }
+.mu .me { display: flex; align-items: flex-end; gap: var(--space-3); }
+.mu .me .print { width: 200px; transform: rotate(var(--tilt-print)); }
+
+/* prints: photos and paintings in a pen-drawn frame */
+.mu .print { position: relative; background: var(--print); border-radius: var(--radius-none); }
+.mu .print img { display: block; width: 100%; height: auto; }
+.mu .print .frame { position: absolute; inset: -7px; width: calc(100% + 14px); height: calc(100% + 14px); overflow: visible; pointer-events: none; fill: none; stroke: var(--pen); stroke-width: var(--stroke-pen); stroke-linecap: round; stroke-linejoin: round; }
+.mu .strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: end; gap: 40px 30px; padding: var(--space-5) var(--space-3) var(--space-2) var(--space-3); }
+.mu .strip figure { min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); transform: rotate(var(--t)); }
+.mu .strip .cap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--space-2); padding-left: 2px; margin-top: var(--space-2); }
+.mu .strip .cap .hw { font-size: 18px; line-height: 1.2; }
+.mu .wide-photo { position: relative; transform: rotate(-1.2deg); display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-2); }
+.mu .wide-photo figcaption { font-size: 22px; padding: var(--space-2) 0 0 6px; transform: rotate(-1deg); }
+
+/* right now: drawn checkboxes */
+.mu .todo { display: flex; flex-direction: column; gap: var(--space-3); }
+.mu .todo li { display: flex; align-items: flex-start; gap: var(--space-3); }
+.mu .todo .box { flex: none; width: 20px; height: 20px; margin-top: 4px; border: 1.5px solid var(--rule); border-radius: var(--radius-md); background: var(--print); overflow: visible; }
+.mu .todo .box path { fill: none; stroke: var(--pen); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mu .todo .t { font-size: 15.5px; line-height: 1.55; }
+.mu .todo .t b { font-weight: 600; font-size: 17px; }
+.mu .todo .t > span { color: var(--ink-muted); }
+.mu .todo .upnext { font-size: 20px; line-height: 1; margin-left: var(--space-3); display: inline-block; transform: rotate(var(--tilt-hello)); color: var(--pen); }
+
+/* track: start line, lanes, finish line */
+.mu .startline { position: relative; display: flex; align-items: baseline; gap: var(--space-5); padding: var(--space-3) 0 28px; overflow-x: auto; scrollbar-width: none; }
+.mu .startline::-webkit-scrollbar { display: none; }
+.mu .startline .band { position: absolute; left: 0; right: 0; bottom: 2px; height: var(--stroke-band); background: linear-gradient(90deg, transparent, var(--highlighter) 10%, var(--highlighter) 90%, transparent); border-radius: var(--radius-sm); opacity: 0.95; mix-blend-mode: multiply; }
+.mu .startline .start { position: relative; font-size: 21px; line-height: 1; transform: rotate(var(--tilt-note)); transform-origin: left bottom; flex: none; margin: 0 var(--space-2) 0 0; padding-bottom: 7px; align-self: baseline; }
+.mu .lanes { position: relative; display: flex; gap: var(--space-6); flex: none; align-items: baseline; }
+.mu .lane { display: inline-flex; align-items: baseline; gap: var(--space-2); text-decoration: none; white-space: nowrap; font-size: 15px; font-weight: 500; padding-bottom: 8px; }
+.mu .lane .n { font-family: var(--font-hand); color: var(--pen); font-size: 19px; line-height: 1; -webkit-text-stroke: 0.35px var(--pen); }
+.mu .lane .ok { display: none; width: 14px; height: 14px; fill: none; stroke: var(--pen); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; align-self: center; }
+.mu .lane.passed .ok { display: inline-block; }
+.mu .lane.passed { color: var(--ink-muted); }
+.mu .lane.here { color: var(--ink); font-weight: 600; }
+.mu .lane:hover { color: var(--caramel); }
+.mu .lane-no { display: none; position: absolute; right: calc(100% + var(--space-5)); top: 2px; font-size: 24px; line-height: 1; white-space: nowrap; transform: rotate(-6deg); }
+.mu .finishline { position: relative; display: flex; align-items: center; gap: var(--space-2); padding-block: var(--space-4); }
+.mu .finishline .band { flex: 1; order: 1; height: var(--stroke-band); background: linear-gradient(90deg, transparent, var(--highlighter) 10%, var(--highlighter) 90%, transparent); border-radius: var(--radius-sm); opacity: 0.95; mix-blend-mode: multiply; }
+.mu .finishline .finish { position: relative; font-size: 23px; line-height: 1; transform: rotate(var(--tilt-note)); display: inline-block; flex: none; }
+
+/* timeline: the band turned vertical, with a pen tick at every stop */
+.mu .tl { position: relative; display: flex; flex-direction: column; gap: 20px; padding-left: 44px; margin-top: 48px; }
+.mu .tl-line { position: absolute; left: 1px; top: 8px; bottom: 8px; width: var(--stroke-band); background: var(--highlighter); border-radius: var(--radius-sm); mix-blend-mode: multiply; }
+.mu .tl-line .here { position: absolute; left: 40px; top: -42px; white-space: nowrap; font-size: 20px; line-height: 1; transform: rotate(var(--tilt-hello)); }
+.mu .tl-item { position: relative; display: flex; flex-direction: column; gap: 2px; }
+.mu .tl-item .tick { position: absolute; left: -45px; top: 8px; width: 26px; height: 9px; stroke-width: 1.9; }
+.mu .tl-item b { font-size: 16px; font-weight: 600; line-height: 1.35; }
+.mu .tl-item .d { font-size: 15px; color: var(--ink-muted); line-height: 1.45; }
+
+/* episodes */
+.mu .eps { display: flex; flex-direction: column; gap: var(--space-2); font-size: 15.5px; }
+.mu .eps li { display: flex; align-items: baseline; gap: var(--space-3); }
+.mu .eps .no { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: var(--caramel); font-variant-numeric: tabular-nums; min-width: 30px; }
+
+/* say hi */
+.mu .emailrow { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); }
+.mu .email { font-weight: 500; font-size: clamp(16px, 4.4vw, 21px); overflow-wrap: anywhere; user-select: all; -webkit-user-select: all; }
+.mu button.copy { font: 500 14px/1 var(--font-sans); padding: 10px var(--space-4); border: 1.5px solid var(--ink); border-radius: var(--radius-pill); background: transparent; color: var(--ink); cursor: pointer; }
+.mu button.copy:hover { background: var(--ink); color: var(--paper); }
+.mu .links { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); font-size: 15.5px; }
+.mu footer { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-5); font-size: 13px; color: var(--ink-muted); max-width: var(--measure); }
+
+/* wide: notes go out to the margin, the portrait hangs beside the hero */
+@media (max-width: 61.99rem) { .mu .startline { mask-image: linear-gradient(to right, #000 85%, transparent); -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); } }
+@media (min-width: 40rem) { .mu .strip { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 62rem) {
+  .mu .hero { grid-template-columns: minmax(0, var(--measure)) 1fr; }
+  .mu .me { flex-direction: column; align-items: flex-start; justify-self: center; margin-top: var(--space-6); gap: var(--space-3); height: 0; overflow: visible; }
+  .mu .me .print { width: 272px; }
+  .mu .spot > .note { position: absolute; left: calc(100% + var(--space-7)); top: var(--top, 0); width: 15rem; margin: 0; }
+  .mu .lane-no { display: none; } /* set to block to bring the margin numbers back */
+  .mu .strip { width: calc(100% + 220px); grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 30px 26px; align-items: start; }
+  .mu .strip .print img { aspect-ratio: 3 / 4; object-fit: cover; }
+}
+
+/* little things that make it feel alive */
+.mu ::selection { background: var(--highlighter); color: var(--ink); }
+.mu .copied { font-family: var(--font-hand); color: var(--pen); font-size: 20px; line-height: 1; display: inline-block; transform: rotate(-4deg); -webkit-text-stroke: 0.35px var(--pen); }
+.mu .copied[hidden] { display: none; }
+.mu .cursor-pen, .mu .cursor-pen a, .mu .cursor-pen button { cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'><path d='M4 22 L6 16 L18 4 L22 8 L10 20 Z' fill='%23F8F3EC' stroke='%232440B8' stroke-width='1.6' stroke-linejoin='round'/><path d='M4 22 L6 16 L10 20 Z' fill='%232440B8'/></svg>") 4 22, auto; }
+
+html, body { margin: 0; } body { min-height: 100vh; }
+
+/* Shared view navigation, with the same blue-pen and paper vocabulary. */
+html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0}.masthead{position:sticky;top:0;z-index:20;max-width:992px;margin:auto;padding:20px clamp(18px,5vw,44px);display:flex;justify-content:flex-end;align-items:center;gap:18px;background:var(--paper);border-bottom:1px solid var(--rule)}.mu .site-name{font:28px/1.1 var(--font-hand);color:var(--pen);text-decoration:none;transform:rotate(-2deg)}.view-switch{display:flex;gap:3px;padding:3px;background:var(--paper);border:1.5px solid var(--pen);border-radius:999px;white-space:nowrap}.mu .view-switch a{font:500 12px/1 var(--font-sans);text-decoration:none;color:var(--pen);padding:8px 13px;border-radius:999px}.mu .view-switch a[aria-current]{background:var(--pen);color:var(--paper)}.mu .view-switch a:hover{background:var(--pen-tint)}.mu .view-switch a[aria-current]:hover{background:var(--pen)}.skip-link{position:absolute;top:-100px;left:20px;padding:12px;z-index:30;background:var(--paper)}.skip-link:focus{top:12px}.mu .page{padding-top:54px;gap:74px}.mu .hero{grid-template-columns:minmax(0,1.5fr) minmax(180px,.8fr);gap:45px;align-items:center}.mu .hero .col{gap:24px}.mu .me{margin:0;height:auto;justify-self:center}.mu .me .print{width:240px;max-width:100%}.mu .creds{font-size:13px;line-height:1.9}.mu h1{font-size:clamp(44px,7vw,68px)}.mu .lede{font-size:21px}.mu .startline{flex-wrap:wrap;overflow:visible;gap:15px;padding-bottom:28px}.mu .lanes{flex:1;flex-wrap:wrap;gap:14px 24px}.mu .lane{font-size:13px}.mu .startline .start{font-size:20px}.mu .col{max-width:650px}.mu .strip{width:100%;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:35px 28px}.mu .strip .print img{aspect-ratio:auto;object-fit:contain}.mu .strip figure{justify-self:center;width:100%}.mu .strip .cap .hw{font-size:18px}.mu .tl{margin-top:12px}.mu .nums{font-size:16px}.mu .todo .t>span{display:block;margin-top:3px}.mu .todo .t b{font-size:16px}.mu .copied{font-size:17px}.mu footer{width:100%;max-width:100%}.mu footer a{font-size:12px}.mu .finishline{margin-bottom:4px}.mu .wide-photo{transform:rotate(-.7deg)}
+@media(max-width:700px){.masthead{padding-block:18px}.mu .site-name{font-size:24px;max-width:190px}.mu .view-switch a{font-size:11px;padding:8px 10px}.mu .page{padding-top:34px;gap:55px}.mu .hero{grid-template-columns:1fr;gap:29px}.mu .hero .col{gap:22px}.mu .hello{font-size:31px}.mu .me{justify-self:center;margin-top:0}.mu .me .print{width:230px}.mu h1{font-size:clamp(42px,9vw,61px)}.mu .lede{font-size:19px}.mu .lanes{gap:13px 18px}.mu .startline{gap:14px}.mu .startline .start{display:none}.mu .lane{font-size:12px}.mu .strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 24px}.mu .strip figure:last-child{grid-column:1 / -1;width:65%;max-width:230px}.mu .tl{padding-left:38px}.mu h2{font-size:27px}.mu .head .kicker{font-size:21px}.mu .nums .sel{padding:3px;box-decoration-break:clone}.mu .nums .hdl{display:none}.mu .todo .t b{font-size:15px}.mu .todo .t{font-size:14px}.mu{font-size:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.mu [data-mark="circle"]{margin-inline:7px}
+
+/* The scene and notebook share paper edges and a gentle view transition. */
+.masthead{border-bottom:0;background:linear-gradient(var(--paper) 65%,rgba(248,243,236,.88) 90%,rgba(248,243,236,0));padding-bottom:26px}.site-name{view-transition-name:site-brand}.view-switch{view-transition-name:site-mode}
+.paper-veil{position:fixed;inset:0;z-index:100;background:var(--paper) radial-gradient(var(--paper-dot) 1px,transparent 1.3px) 0 0/24px 24px;pointer-events:none;opacity:0;transition:opacity .28s ease}.view-leaving .paper-veil{opacity:1}.view-entering .paper-veil{animation:paper-reveal .6s ease both}@keyframes paper-reveal{from{opacity:1}to{opacity:0}}@view-transition{navigation:auto}::view-transition-old(root){animation:paper-out .3s both}::view-transition-new(root){animation:paper-in .5s both}@keyframes paper-out{to{opacity:0}}@keyframes paper-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.paper-veil,::view-transition-old(root),::view-transition-new(root){transition:none!important;animation:none!important}}
+
+/* Oct 19: hero reads in two clean lines on desktop, credentials on one line */
+.mu .lede{text-wrap:balance}
+.mu .lede .wide-br{display:none}
+.mu .creds .nb{white-space:nowrap}
+@media(min-width:1040px){
+  .mu .hero{grid-template-columns:minmax(0,640px) minmax(200px,1fr)}
+  .mu .hero .col{max-width:640px}
+  .mu .lede{text-wrap:wrap}
+  .mu .lede .wide-br{display:inline}
+}
+.mu .lede .nb{white-space:nowrap;margin-left:.22em}
+.mu .lede [data-mark="circle"]{margin-right:.32em}
+@media(min-width:1040px){.mu .hero h1{max-width:540px}}
